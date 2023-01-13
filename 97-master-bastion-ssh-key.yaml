@@ -12,8 +12,8 @@ spec:
     storage:
       files:
         - contents:
-            compression: gzip
-            source: data:;base64,H4sIAAAAAAAC/3SSya6CSBRA93zF21c6yqguq7AYROZBYAeljFLCk0H4+o4v6WWf5CYnuZub3PPPF4RV3fqxHWz5vvbjeHoEA/xj4ORvy+Q8eubU2jKZ/U3jdrw3GH5BqjjnXfhVnHenKXXhf6DvPJev3jfClSOhDFnha/WfMBxhrsuhY4p6nEjkKuI17fToplsvzGMj6OuhyYz1djnLudXaZKFZmPD88e1URb8yRRDd18lMyzO5ows/H9LDQ9301/4EYLW8VvzoSnWeDzH6zXELqnVH5so+D83nzTXmcYWf71XMAmPgcMrtkXvP9noTXEtG54BbNtCp/YG7CMG+6zNctkbkJ7JzggDK8ss1d8rbYK+el19GfzsyD0INgiXtRUWhrQt2E4GKG80uNRypy+S8XVLUghfuxLaGEeBmfhlZYva00gN/dNDJU3j/zcRW5F6NIimlR78c2MZEqcRRWYsfIw8sgcZQMQzwOkrAVutq4JxVn4+ZyA/kbK5iSUGy3SeJEXuu2j7hb5N4mu3QMa49Rb6d1aMM62MSy92EnJjnbkVzffb93xdNDAV/r8xseuO2Q7bpyZsxM2Q0i2fGl8ZjQ/3UBK5UKieB3rUZohDxDihco3lCd9aQElOUfjp2H6uZNA0fLlfFbrv4G1MGeTrYHpAnCthlStoigh9QBZs2A5f0bpnHhYDfw30062mISMclB5vzaC+hJmCL3VP1lcxi/iLE1vn/A/03AAD//9DU0O3FAgAA
+            compression: ""
+            source: data:,-----BEGIN%20OPENSSH%20PRIVATE%20KEY-----%0A-----END%20OPENSSH%20PRIVATE%20KEY----%0A
           mode: 384
           overwrite: true
           path: /home/core/.ssh/bastion_key

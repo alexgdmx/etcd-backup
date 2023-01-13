@@ -12,13 +12,4 @@ storage:
     contents:
       inline: |
         -----BEGIN OPENSSH PRIVATE KEY-----
-        b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
-        cyAoySlAUtAbICUPM5IXY6cL5EyZmIVWINoE3EKTpiqjaKyWJDCbNkOcwnaUY338sPhfpy
-        fTVdyuMZgDcdBJ3v7Z7eGzIo09+AhwoyEemgGvv7XBrbEk+hy/cvhODqjxs2jM8yAxAAAA
-        wAX+P2FWebRlkLW4QNCBDT2wz+mGp72J4T0mpaEgkKVSYCP9A+ACCoQM/FsK1LRRbJtSz8
-        ecnKcE6Hon54kif1z5+GEjHOgHEVGwuPsQcfi4RU/5kiAV+2v3wt1cMpnhITStPB9RF3Ss
-        XNVQLKfYg6epw71jMBZ62nCHXet3+N4nXAFKK+o86+OGihq2PyIv8a53qcDMy5gn+Yzdu6
-        5p2hzxUrjYRHOPntXiRFCWDG8CAi8YXCmuBPX32WfjLlppEAAAAMEA4S0Fv1ZW2z7azIYs
-        MaBKjwRMXJjR1UI9jTQ6gF94ndHvABUB3P+fQKjlAQvHBFXnBZxm10XGa6uqx2bG5mzJSz
-        gTbZqOR+Cun+1wuYkfVAx+hTzHv+QcpQgbXf4EsqdtMiuqVcm2Y7O2Rnp6BjT1f/lGSFaN
-        -----END OPENSSH PRIVATE KEY-----
+        -----END OPENSSH PRIVATE KEY----
