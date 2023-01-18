@@ -32,13 +32,16 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: cluster-etcd-backup
+  namespace: ocp-etcd-backup
 rules:
 - apiGroups: [""]
   resources:
      - "nodes"
+     - "namespaces"
   verbs: ["get", "list"]
 - apiGroups: [""]
   resources:
+     - "namespaces"
      - "pods"
      - "pods/log"
   verbs: ["get", "list", "create", "delete", "watch"]
@@ -66,7 +69,7 @@ metadata:
   labels:
     app: openshift-backup
 spec:
-  schedule: "5 * * * *"
+  schedule: "*/5 * * * *"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 5
   failedJobsHistoryLimit: 5
@@ -94,3 +97,4 @@ spec:
           dnsPolicy: "ClusterFirst"
           serviceAccountName: "openshift-backup"
           serviceAccount: "openshift-backup"
+---
