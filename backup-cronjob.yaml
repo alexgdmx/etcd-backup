@@ -1,0 +1,67 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: openshift-backup
+  namespace: ocp-etcd-backup
+spec:
+  schedule: "*/3 * * * *"
+  startingDeadlineSeconds: 600
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - command:
+              - "/bin/bash"
+              - "-c"
+              - oc get no -l node-role.kubernetes.io/master --no-headers -o name | xargs -I {} --  oc debug {} -- bash -c 'chroot /host sudo -E /usr/local/bin/cluster-backup.sh /home/core/backup/ && chroot /host sudo -E find /home/core/backup/ -type f -mmin +"1" -delete;' && cp /host//home/core/backup/* /backup
+            image: registry.redhat.io/openshift4/ose-cli
+            imagePullPolicy: Always
+            name: backup-etcd
+            resources:
+              requests:
+                cpu: 500m
+                memory: 128Mi
+              limits:
+                cpu: 1000m
+                memory: 512Mi
+            securityContext:
+              fsGroup: 99
+              runAsGroup: 99
+              runAsUser: 99
+              supplementalGroups: 
+                - 99
+                - 0
+                - 65534
+              privileged: true
+              allowPrivilegeEscalation: true
+              # capabilities:
+              #   drop: ["ALL"]
+              # runAsNonRoot: flase
+              # seccompProfile:
+              #   type: RuntimeDefault
+            volumeMounts:
+            - mountPath: /host
+              name: host
+            - name: volume-backup
+              mountPath: /backup
+          nodeSelector:
+            node-role.kubernetes.io/master: ""
+          tolerations:
+            - effect: NoSchedule
+              key: node-role.kubernetes.io/master
+          hostNetwork: true
+          hostPID: true
+          serviceAccountName: "openshift-backup"
+          serviceAccount: "openshift-backup"
+          restartPolicy: Never
+          dnsPolicy: ClusterFirst
+          volumes:
+          - hostPath:
+              path: /
+              type: Directory
+            name: host
+          - name: volume-backup
+            persistentVolumeClaim:
+              claimName: openshift-backup-pvc

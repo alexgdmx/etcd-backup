@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: openshift-backup-cronjob-monitor
+  namespace: ocp-etcd-backup
+spec:
+  groups:
+  - name: cronjob-fail
+    rules:
+    - alert: EtcdBackupCronJobStatusFailed
+      expr: |
+        kube_job_status_succeeded{namespace="openshift-backup"} == 0
+      labels:
+        severity: critical
