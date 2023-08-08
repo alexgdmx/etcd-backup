@@ -27,13 +27,11 @@ spec:
                 cpu: 1000m
                 memory: 512Mi
             securityContext:
-              fsGroup: 99
-              runAsGroup: 99
-              runAsUser: 99
+              fsGroup: 65534
+              runAsGroup: 0
+              runAsUser: 0
               supplementalGroups: 
-                - 99
-                - 0
-                - 65534
+                - 65533
               privileged: true
               allowPrivilegeEscalation: true
               # capabilities:
